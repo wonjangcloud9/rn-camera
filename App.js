@@ -29,7 +29,8 @@ export default function App() {
 
   const capture = async () => {
     if (!Camera) return
-    const photo = await Camera.takePictureAsync()
+    const options = { quality: 0.5, base64: true, skipProcessing: true };
+    const photo = await Camera.takePictureAsync(options)
     console.log(photo)
     setPreviewVisible(true)
     setCapturedImage(photo)
